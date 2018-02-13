@@ -2,9 +2,10 @@
   "name": "techdegree-project6",
   "version": "1.0.0",
   "description": "Project 6 for the Tech Degree program.",
-  "main": "app.js",
+  "main": "scraper.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node scraper.js"
   },
   "author": "Megan Roberts",
   "license": "ISC",
