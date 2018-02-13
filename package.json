@@ -1,0 +1,14 @@
+{
+  "name": "techdegree-project6",
+  "version": "1.0.0",
+  "description": "Project 6 for the Tech Degree program.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Megan Roberts",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  }
+}
