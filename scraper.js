@@ -94,6 +94,7 @@ const getAttr = (body) => {
             //if there was an error, call the error function
             if (err) {
                 errMessage(err);
+                console.log(err);
             }
         });
     });
@@ -127,6 +128,7 @@ const getData = () => {
         //if this function through an error, then call the error function
         if (err) {
             errMessage(err);
+            console.log(err);
         }
     });
 }
