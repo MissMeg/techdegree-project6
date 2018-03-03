@@ -58,12 +58,8 @@ const getAttr = (body) => {
             //create error if the status is not 200
             if (statusCode !== 200) {
                 err = new Error(`Request Failed. Status Code: ${statusCode}`);
-                //if this function through an error, then call the error function
-                errMessage(err);
                 if (statusCode === 404) {
                     err = new Error(`Request Failed. Status Code: ${statusCode} Cannot connect to Mike's Shirts`);
-                    //if this function through an error, then call the error function
-                    errMessage(err);
                 }
             } else {
                 //place the data into the body as a string
@@ -95,6 +91,11 @@ const getAttr = (body) => {
                     }
                 });
             }
+            //if there was an error, call the error function
+            if (err) {
+                errMessage(err);
+                console.log(err);
+            }
         });
     });
 }
@@ -111,12 +112,8 @@ const getData = () => {
         //if the statuscode is not 200, then create an error
         if (statusCode !== 200) {
             err = new Error(`Request Failed. Status Code: ${statusCode}`);
-            //if this function through an error, then call the error function
-            errMessage(err);
             if (statusCode === 404) {
                 err = new Error(`Request Failed. Status Code: ${statusCode} Cannot connect to Mike's Shirts`);
-                //if this function through an error, then call the error function
-                errMessage(err);
             }
         } else {
             //place the data into the body string
@@ -127,6 +124,11 @@ const getData = () => {
             res.on('end', () => {
                 getAttr(body);
             });
+        }
+        //if this function through an error, then call the error function
+        if (err) {
+            errMessage(err);
+            console.log(err);
         }
     });
 }
