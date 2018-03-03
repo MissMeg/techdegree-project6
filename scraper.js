@@ -81,7 +81,7 @@ const getAttr = (body) => {
                     let imgURL = `http://shirts4mike.com/${shirtURL}`;
                     //get the date
                     let time = new Date();
-                    //set as time only from the date 
+                    //set as time only from the date
                     time = time.toLocaleTimeString('en-US');
                     //push the data into the data array
                     data.push({Title: title, Price: price, ImgURL: imgURL, URL: url, Time: time});
@@ -95,6 +95,8 @@ const getAttr = (body) => {
             if (err) {
                 errMessage(err);
             }
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
         });
     });
 }
@@ -128,6 +130,9 @@ const getData = () => {
         if (err) {
             errMessage(err);
         }
+    }).on('error', function(e) {
+        let err = new Error(`Request failed. Cannot connect to Mike's Shirts.`);
+        errMessage(err);
     });
 }
 
